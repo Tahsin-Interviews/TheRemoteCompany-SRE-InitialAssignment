@@ -1,0 +1,31 @@
+# How to configure Route53 issuer
+# https://cert-manager.io/docs/configuration/acme/dns01/route53/
+
+# Difference between issuer & ClusterIssuer ?
+# https://cert-manager.io/docs/concepts/issuer/#namespaces
+
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-staging-issuer
+spec:
+  acme:
+    # The ACME server URL
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    # Email address used for ACME registration
+    email: rafaftahsin@gmail.com
+    # Name of a secret used to store the ACME account private key
+    privateKeySecretRef:
+      name: acme-private-key
+    solvers:
+    - selector:
+        dnsZones:
+          - "s7em.com"
+      dns01:
+        route53:
+          region: eu-central-1
+          hostedZoneID: Z07839243TVQSHRYS6FGL
+          accessKeyID: AKIARRGEOA6WAQSFDNE5
+          secretAccessKeySecretRef:
+            name: prod-route53-credentials-secret
+            key: secret-access-key

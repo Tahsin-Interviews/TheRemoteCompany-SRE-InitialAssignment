@@ -6,12 +6,14 @@ minikube start --driver=virtualbox
 
 ### Enable Ingress
 
-For minikube Need to enable Ingress Addon 
+For minikube Need to enable Ingress Addon
+
 ```shell
 minikube addons enable ingress
 ```
 
 For Other platform
+
 ```shell
 # Nginx Ingress
 helm repo add nginx-stable https://helm.nginx.com/stable
@@ -37,7 +39,6 @@ helm install \
 - [Why `--set installCRDs=true`?](https://github.com/jetstack/cert-manager/issues/3246)
 - [Why `--set 'extraArgs={--dns01-recursive-nameservers-only,--dns01-recursive-nameservers=8.8.8.8:53\,1.1.1.1:53}'`?](https://stackoverflow.com/questions/60989753/cert-manager-is-failing-with-waiting-for-dns-01-challenge-propagation-could-not)
 
-
 ### Install letsencrypt-staging-issuer
 
 ```shell
@@ -53,7 +54,7 @@ You can check progress with `kubectl get clusterissuer` and `kubectl describe cl
 kubectl apply -f go-web-app.yaml
 ```
 
-### When the app is ready, deploy the ingress. 
+### When the app is ready, deploy the ingress.
 
 ```shell
  kubectl apply ingress.yaml
@@ -61,17 +62,17 @@ kubectl apply -f go-web-app.yaml
 
 This will create ingress and also trigger a letsencrypt staging certificate request.
 
-# How the certificate is generated ? 
+# How the certificate is generated ?
 
 When cert-manager sees a request from ingress for a tls secret it creates a `certificaterequest` resource to generate a `certificate` which will later be mapped with the tls-secret described in the `ingress` resource.
 
-You can see the status of certificaterequest with 
+You can see the status of certificaterequest with
 
 ```shell
 kubectl describe certificaterequest
 ```
 
-And you can see the certificate with 
+And you can see the certificate with
 
 ```shell
 kubectl describe certificate
@@ -85,6 +86,3 @@ kubectl describe challenge
 ```
 
 This `challenge` resource varifies the identity wtih `dns01` or `http01` protocol as mentioned in the issuer.
-
-
-
