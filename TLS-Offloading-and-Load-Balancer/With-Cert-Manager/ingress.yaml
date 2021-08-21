@@ -7,13 +7,13 @@ metadata:
   name: ingress
   namespace: default
   annotations:
-    # cert-manager.io/cluster-issuer: letsencrypt-staging-issuer
-    cert-manager.io/issuer: letsencrypt-staging-issuer
+    # cert-manager.io/issuer: letsencrypt-staging-issuer
+    cert-manager.io/issuer: letsencrypt-prod-issuer
 spec:
   tls:
     - hosts:
         - localhost.s7em.com
-      secretName: tls-secret-staging
+      secretName: tls-secret
   rules:
     - host: localhost.s7em.com
       http:
