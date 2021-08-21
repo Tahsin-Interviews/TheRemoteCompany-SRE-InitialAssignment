@@ -7,7 +7,8 @@ metadata:
   name: ingress
   namespace: default
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-staging-issuer
+    # cert-manager.io/cluster-issuer: letsencrypt-staging-issuer
+    cert-manager.io/issuer: letsencrypt-staging-issuer
 spec:
   tls:
     - hosts:

@@ -5,7 +5,7 @@
 # https://cert-manager.io/docs/concepts/issuer/#namespaces
 
 apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
+kind: Issuer
 metadata:
   name: letsencrypt-staging-issuer
 spec:
