@@ -36,7 +36,7 @@ gpg go-web-app-chart/templates/prod-route53-credentials-secret.yaml.gpg
 rm go-web-app-chart/templates/prod-route53-credentials-secret.yaml.gpg
 ```
 
-When prompt for password, use i-a-m-g-r-0-0-t as password without `-`.
+When prompt for password, use `i-a-m-g-r-0-0-t` as password without `-`.
 
 ### Install app with helm
 
@@ -59,4 +59,17 @@ Cert Manager deployment Process was inspired by : https://www.digitalocean.com/c
 
 I've implemented the solution in minikube. If the application was deployed with LB, minikube would expose the application on a random port. I need the application to be accessed with port 80 and the IP address to be mapped with DNS to verify acme challenge.
 
+### The Folder `With-Cert-Manager` and `Without-Cert-Manager`
 
+The folder `With-Cert-Manager` and `Without-Cert-Manager` has nothing to do with the final helm chart.
+
+These are actually the baby step implementing the final product.
+
+1. `Without-Cert-Manager` contains code to deploy go-web-app with a static provided tls certificate without helm chart.
+2. `With-Cert-Manager` Cert Manager is introduced to generate certificate.
+
+final product is `go-web-app-chart` which contains the final helm chart.
+
+# Route 53 dns based auth is used 
+
+[In details](https://cert-manager.io/docs/configuration/acme/dns01/route53/)
