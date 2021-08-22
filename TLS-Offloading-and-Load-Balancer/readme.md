@@ -63,13 +63,13 @@ I've implemented the solution in minikube. If the application was deployed with 
 
 The folder `With-Cert-Manager` and `Without-Cert-Manager` has nothing to do with the final helm chart.
 
-These are actually the baby step on the way to final product. I kept them as it is as future reference.
+These are actually the baby steps on the way to final product. I kept them as it is as future reference.
 
 1. `Without-Cert-Manager` contains code to deploy go-web-app with a static provided tls certificate without helm chart.
 2. `With-Cert-Manager` Cert Manager is introduced to generate certificate.
 
 final product is `go-web-app-chart` which contains the final helm chart.
 
-# Route 53 dns based auth is used 
+### Route 53 dns based auth is used 
 
 [In details](https://cert-manager.io/docs/configuration/acme/dns01/route53/)
