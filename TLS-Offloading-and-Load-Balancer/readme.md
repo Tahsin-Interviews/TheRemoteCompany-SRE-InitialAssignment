@@ -63,7 +63,7 @@ I've implemented the solution in minikube. If the application was deployed with 
 
 The folder `With-Cert-Manager` and `Without-Cert-Manager` has nothing to do with the final helm chart.
 
-These are actually the baby step implementing the final product.
+These are actually the baby step on the way to final product. I kept them as it is as future reference.
 
 1. `Without-Cert-Manager` contains code to deploy go-web-app with a static provided tls certificate without helm chart.
 2. `With-Cert-Manager` Cert Manager is introduced to generate certificate.
