@@ -1,10 +1,10 @@
-### To run with `go` 
+- ### To run with `go` 
 
 ```shell
 go run .
 ```
 
-### Build Application and running the binary 
+- ### Building Application and running the binary 
 
 ```shell
 go build
@@ -16,16 +16,17 @@ It will generate a binary named `Go-Web-App-Container`. You can now run the app 
 ./Go-Web-App-Container 
 ```
 
-### Build and run the app with `docker`
+- ### Building and runing the app with `docker`
 
 ```shell
 docker build -t "rafaftahsin/go-web-app:master" .
 docker run -it -p 8080:8080 "rafaftahsin/go-web-app:master"
 ```
 
-### Run with dockerhub image
+- ### Run with dockerhub image
 
 ```shell
+docker rm $(docker ps -aq --filter "ancestor=rafaftahsin/go-web-app:master")
 docker rmi rafaftahsin/go-web-app:master
 docker pull rafaftahsin/go-web-app:master
 docker run -it -p 8080:8080 "rafaftahsin/go-web-app:master"
